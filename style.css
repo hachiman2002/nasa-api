@@ -1,0 +1,49 @@
+/*FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+:root {
+  font-family: 'Oswald', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  background-image: url('./public/background/background-sky-night.webp');
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 1rem;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(77, 70, 70, 0.5);
+  text-align: center;
+  border-radius: 10px;
+  color: aliceblue;
+}
+
+#app h1{
+  font-size: 3rem;
+  font-family: 'Bungee Spice', sans-serif;
+}
+
