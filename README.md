@@ -17,7 +17,7 @@ Para ejecutar la aplicación, necesitarás tener instalado lo siguiente:
 npm.
 
 ```
-npm install'
+npm install
 ```
 
 Acceso a Internet para realizar solicitudes a la API.
