@@ -1,11 +1,10 @@
-import './table.css';
-import html from './loader-spinner.html?raw'
-import { createTable } from './create-table';
-import { fetchQuote } from './fetch-quote';
+import './presentation/table/table.css';
+import html from './presentation/loader-spinner/loader-spinner.html?raw'
+import { createTable } from './presentation/table/create-table';
+import { fetchQuote } from './functions/fetch-quote';
+import { getCurrentDate } from './functions/get-current-date';
 
 let table;
-
-
 
 
 /**
@@ -13,12 +12,17 @@ let table;
  */
 export const NasaApp = async (element) => {
     console.log("App nasa");
-    console.log(html);
-    element.innerHTML = html
+
+    element.innerHTML = html;
 
     const renderQuote = async(data) =>{
+
         data = await fetchQuote();
-        const asteroidObjects = data.near_earth_objects["2024-04-25"];
+
+        const date = getCurrentDate();
+
+        
+        const asteroidObjects = data.near_earth_objects[date];
 
         if(!table){
             table = createTable();
@@ -28,11 +32,12 @@ export const NasaApp = async (element) => {
         let tableHTML = '';
 
         asteroidObjects.forEach(asteroid => {
+            const dangerClass = asteroid.is_potentially_hazardous_asteroid ? 'text-danger' : '';
             tableHTML += `
                     <tr>
                         <td>${asteroid.id}</td>
                         <td>${asteroid.name}</td>
-                        <td>${asteroid.is_potentially_hazardous_asteroid ? 'Yes' : 'No'}</td>
+                        <td class="${dangerClass}">${asteroid.is_potentially_hazardous_asteroid ? 'Yes' : 'No'}</td>
                         <td>${asteroid.absolute_magnitude_h}</td>
                         <td>
                             ${asteroid.estimated_diameter.kilometers.estimated_diameter_min}(km) <br>
